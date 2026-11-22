@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AgriLoop – Mua bán phụ phẩm nông nghiệp</title>
+<meta name="description" content="AgriLoop giúp người có phụ phẩm nông nghiệp và người cần nguyên liệu tìm thấy nhau trên toàn quốc.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8C%BF%3C/text%3E%3C/svg%3E">
+<style>
+:root{--g1:#14532d;--g2:#2f9e44;--g3:#eaf5e6;--bg:#f6f8f5;--ink:#1b2a20;--mut:#5f6e63;--line:#e1e7de;--bad:#b3261e;--r:14px}
+*{box-sizing:border-box}[hidden]{display:none!important}html{scroll-behavior:smooth}
+body{margin:0;font:16px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:inherit}img,video,iframe{max-width:100%}h1,h2,h3{line-height:1.25;margin:0 0 .5em}.wrap{max-width:1120px;margin:auto;padding:0 20px}.c{text-align:center}.note{color:var(--mut);font-size:14px}
+:focus-visible{outline:3px solid var(--g2);outline-offset:2px}
+.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:20px;padding:12px max(20px,calc((100vw - 1120px)/2));background:#fff;border-bottom:1px solid var(--line)}
+.logo{font-size:24px;font-weight:800;color:var(--g1);text-decoration:none;letter-spacing:-.02em}.logo b{color:var(--g2)}
+.top nav{display:flex;gap:4px;margin-left:auto;align-items:center}.top nav a{padding:8px 14px;border-radius:99px;text-decoration:none;font-weight:600;color:var(--mut)}.top nav a:hover,.top nav a.on{background:var(--g3);color:var(--g1)}
+.btn{display:inline-block;background:var(--g2);color:#fff;border:0;padding:11px 22px;border-radius:12px;font:inherit;font-weight:700;cursor:pointer;text-decoration:none;transition:.15s}.btn:hover{background:#278a3b}
+.btn.sm{padding:7px 14px;font-size:14px}.btn.big{padding:14px 26px;font-size:17px;width:100%;text-align:center}.btn.ghost{background:#fff;color:var(--g1);box-shadow:inset 0 0 0 1.5px var(--line)}.btn.ghost:hover{background:var(--g3)}.btn.dark{background:var(--g1)}
+input,select,textarea{display:block;width:100%;font:inherit;padding:11px 12px;border:1.5px solid var(--line);border-radius:10px;background:#fff;margin-top:4px;color:var(--ink)}input[type=checkbox],input[type=radio]{display:inline;width:auto}
+input:focus,select:focus,textarea:focus{border-color:var(--g2);outline:0;box-shadow:0 0 0 3px #2f9e4430}
+.f{font-weight:600;font-size:14px;display:block}.f .err{display:block;color:var(--bad);font-weight:400;font-size:13px;min-height:0}.f.bad input,.f.bad select,.f.bad textarea{border-color:var(--bad)}.form{display:grid;gap:14px}.r2{display:grid;grid-template-columns:1fr 1fr;gap:12px}.r3{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:12px}
+.wl-top{display:flex;justify-content:space-between;align-items:center;padding:18px max(20px,calc((100vw - 1120px)/2))}.wl-top .acts{display:flex;gap:10px}
+.wl-hero{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;padding:30px max(20px,calc((100vw - 1120px)/2)) 50px}
+.wl-hero h1{font-size:clamp(34px,5vw,56px);font-weight:900;letter-spacing:-.03em;line-height:1.08}.wl-hero h1 em{color:var(--g2);font-style:normal}.wl-hero p{font-size:19px;color:var(--mut);max-width:480px}
+.wl-cta{display:grid;gap:12px;max-width:360px;margin:26px 0 10px}
+.wl-vis{position:relative;aspect-ratio:1/1;max-width:520px;width:100%;border-radius:24px;overflow:hidden;background:linear-gradient(135deg,var(--g1),var(--g2));justify-self:center}
+.wl-vis>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.mini{position:absolute;width:64%;background:#fff;border-radius:14px;padding:12px 14px;box-shadow:0 14px 30px #0004;line-height:1.35}.mini b{display:block}.mini small{color:var(--mut)}.mini .pr{font-size:17px}
+.m1{left:6%;top:8%;transform:rotate(-4deg)}.m2{right:5%;top:40%;transform:rotate(3deg)}.m3{left:9%;bottom:6%;transform:rotate(-2deg)}
+.wl-feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;padding:0 max(20px,calc((100vw - 1120px)/2)) 40px}.wl-feat div{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px}.wl-feat i{font-size:28px;font-style:normal}.wl-feat h3{margin:6px 0 4px}.wl-feat p{margin:0;color:var(--mut)}
+.authpage{min-height:100vh;display:grid;place-content:center;justify-items:center;gap:20px;padding:30px 20px}.authbox{background:#fff;border:1px solid var(--line);border-radius:20px;padding:26px;width:min(440px,92vw);box-shadow:0 10px 40px #14532d14}
+.tabs2{display:flex;border-bottom:2px solid var(--line);margin-bottom:16px}.tabs2 a{flex:1;text-align:center;padding:10px;text-decoration:none;font-weight:700;color:var(--mut);margin-bottom:-2px;border-bottom:3px solid transparent}.tabs2 a.on{color:var(--g1);border-color:var(--g2)}
+.hero{background:linear-gradient(135deg,var(--g1),#1f7a3c);color:#fff;padding:46px 0 52px}.hero h1{font-size:clamp(26px,4vw,40px);font-weight:800}.hero p{opacity:.9;margin:0 0 18px}
+.sb{display:grid;grid-template-columns:1fr 220px auto;gap:8px;background:#fff;padding:8px;border-radius:16px;max-width:800px}.sb input,.sb select{margin:0;border-color:transparent}
+.sec{padding:30px 0 6px}.sechd{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px}.sechd h2{font-size:22px;margin:0}.sechd a{color:var(--g2);font-weight:600;text-decoration:none}
+.cats{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:-26px;position:relative}.cat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 6px;cursor:pointer;font:inherit;font-size:14px;font-weight:600;text-align:center;transition:.15s}.cat:hover{border-color:var(--g2);transform:translateY(-2px)}.cat i{display:block;font-size:28px;font-style:normal;margin-bottom:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:16px}
+.card{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;transition:.15s}.card:hover{box-shadow:0 8px 24px #14532d1f;transform:translateY(-2px)}
+.product-image,.ph43{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;background:var(--g3)}.card .im{display:block}
+.cb{padding:12px 14px 14px}.cb h3{font-size:16px;margin:2px 0 4px;font-weight:600}.cb h3 a{text-decoration:none}.pr{font-size:19px;font-weight:800;color:var(--g1)}.pr small{font-weight:500;color:var(--mut);font-size:13px}.mt{margin:2px 0 8px;color:var(--mut);font-size:14px}
+.sl{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--mut)}.av{width:26px;height:26px;border-radius:50%;object-fit:cover;flex:none}.av.lg{width:56px;height:56px}
+.save{position:absolute;right:10px;top:10px;width:34px;height:34px;border-radius:50%;border:0;background:#fff;color:#aab4ac;font-size:17px;cursor:pointer;box-shadow:0 2px 6px #0003}.save.on{color:#d6322e}
+.need{padding:14px;display:grid;gap:4px}.need .tg{display:inline-block;background:var(--g3);color:var(--g1);font-size:12px;font-weight:700;padding:2px 10px;border-radius:99px;width:max-content}
+.tabs{display:flex;gap:4px;border-bottom:2px solid var(--line);margin:22px 0 14px}.tabs button,.tabs a{padding:10px 16px;border:0;background:none;font:inherit;font-weight:700;color:var(--mut);cursor:pointer;border-bottom:3px solid transparent;margin-bottom:-2px;text-decoration:none}.tabs .on{color:var(--g1);border-color:var(--g2)}
+.filters{display:grid;grid-template-columns:2fr 1.3fr 1.3fr 1fr 1fr 1.1fr;gap:10px;margin-bottom:14px}.filters label{font-size:12px;font-weight:700;color:var(--mut)}.filters input,.filters select{margin-top:2px}
+.empty{text-align:center;padding:44px 16px;background:#fff;border:1px dashed var(--line);border-radius:var(--r)}.empty div{font-size:40px}
+.skel{height:280px;border-radius:var(--r);background:linear-gradient(90deg,#edf1eb 25%,#f8faf7 50%,#edf1eb 75%);background-size:200% 100%;animation:sk 1.1s infinite}@keyframes sk{to{background-position:-200% 0}}
+.detail{display:grid;grid-template-columns:1.1fr 1fr;gap:30px;margin-top:16px}.mainimg{border-radius:var(--r)}.thumbs{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:8px}.thumbs button{padding:0;border:2px solid transparent;border-radius:8px;overflow:hidden;cursor:pointer;background:none}.thumbs button:hover{border-color:var(--g2)}.thumbs img{width:100%;aspect-ratio:1;object-fit:cover;display:block}
+.detail h1{font-size:26px}.detail .pr{font-size:30px}.sbox{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;margin:14px 0}.sbox p{margin:0}
+.acts{display:flex;gap:8px;flex-wrap:wrap}.acts .btn{flex:1;min-width:110px;text-align:center}
+table.sp{border-collapse:collapse;width:100%;background:#fff;border-radius:10px;overflow:hidden}.sp td{padding:10px 12px;border-bottom:1px solid var(--line)}.sp td:first-child{color:var(--mut);width:38%}
+.vw{aspect-ratio:16/9;background:#000;border-radius:var(--r);overflow:hidden}.vw video,.vw iframe{width:100%;height:100%;border:0}.novid{position:relative;border-radius:var(--r);overflow:hidden;text-align:center;color:#fff}.novid p{position:absolute;inset:auto 0 0;margin:0;padding:12px;background:#000a;font-size:14px}
+.box{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.steps{display:flex;gap:8px;margin:0 0 18px;padding:0;list-style:none}.steps li{flex:1;text-align:center;padding:8px;border-radius:10px;background:#e8ede6;color:var(--mut);font-size:14px;font-weight:600}.steps li.on{background:var(--g2);color:#fff}
+.pv{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}.pv img{width:72px;height:72px;object-fit:cover;border-radius:8px}
+.row{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:10px;margin-bottom:10px;flex-wrap:wrap}.row>div{flex:1;min-width:180px}.row .im{width:90px}.row .acts .btn{flex:none;min-width:0}
+.st{font-size:12px;padding:2px 10px;border-radius:99px;background:var(--g3);color:var(--g1)}.st.off{background:#eee;color:#555}
+.prof{display:flex;gap:14px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.msg{border-radius:14px;padding:8px 12px;margin:8px 0;max-width:82%}.msg p{margin:2px 0}.msg small{color:var(--mut)}.msg.me{background:var(--g3);margin-left:auto}.msg.ptn{background:#fff;border:1px solid var(--line)}.msg.sys{background:#f1f3ef;max-width:100%;font-size:14px;color:var(--mut)}
+.room{max-height:420px;overflow:auto;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:10px;margin:12px 0}
+.chips{display:flex;gap:8px;overflow-x:auto;padding:2px 0 8px}.chip{white-space:nowrap;border:1.5px solid var(--line);background:#fff;border-radius:99px;padding:6px 14px;font:inherit;font-size:14px;cursor:pointer}.chip:hover{background:var(--g3)}
+.foot{margin-top:50px;background:#fff;border-top:1px solid var(--line);padding:26px 0 30px;font-size:14px;color:var(--mut)}.foot .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}.foot nav{display:flex;gap:18px;flex-wrap:wrap}.foot a{text-decoration:none}.foot a:hover{color:var(--g1)}
+.tabbar{display:none}#toasts{position:fixed;right:16px;bottom:16px;display:grid;gap:8px;z-index:50}.toast{background:var(--g1);color:#fff;padding:12px 18px;border-radius:12px;box-shadow:0 6px 20px #0004;max-width:320px;animation:in .25s}.toast.err{background:var(--bad)}@keyframes in{from{opacity:0;transform:translateY(10px)}}
+body.gate .top,body.gate .foot,body.gate .tabbar{display:none!important}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+@media(max-width:900px){.cats{display:flex;overflow-x:auto;padding-bottom:6px}.cat{min-width:104px;flex:none}.wl-hero,.detail{grid-template-columns:1fr}.wl-vis{max-width:420px}.top nav{display:none}.top{justify-content:space-between}.filters{grid-template-columns:1fr 1fr}.filters label:first-child{grid-column:1/3}.sb{grid-template-columns:1fr}.r2,.r3{grid-template-columns:1fr}
+.tabbar{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:30;background:#fff;border-top:1px solid var(--line)}.tabbar a{flex:1;text-align:center;text-decoration:none;font-size:12px;padding:6px 0;color:var(--mut)}.tabbar i{display:block;font-style:normal;font-size:20px}.tabbar a.on{color:var(--g1);font-weight:700}body{padding-bottom:62px}body.gate{padding-bottom:0}#toasts{bottom:74px}}
+</style>
+</head>
+<body>
+<header class="top"><a class="logo" href="#/">Agri<b>Loop</b></a>
+<nav aria-label="Điều hướng chính"><a href="#/market" data-n="market">Chợ phụ phẩm</a><a href="#/post" data-n="post">Đăng tin</a><a href="#/chat" data-n="chat">Tin nhắn</a><a href="#/account" data-n="account">Tài khoản</a></nav></header>
+<main id="app" tabindex="-1"></main>
+<footer class="foot"><div class="wrap"><span>© 2026 AgriLoop</span><nav><a href="#/info/about">Giới thiệu</a><a href="#/info/guide">Hướng dẫn</a><a href="#/info/policy">Chính sách & điều khoản</a><a href="#/info/contact">Liên hệ</a></nav></div></footer>
+<nav class="tabbar" aria-label="Điều hướng nhanh"><a href="#/" data-n="home"><i>🏠</i>Trang chủ</a><a href="#/market" data-n="market"><i>🛒</i>Chợ</a><a href="#/post" data-n="post"><i>➕</i>Đăng tin</a><a href="#/chat" data-n="chat"><i>💬</i>Tin nhắn</a><a href="#/account" data-n="account"><i>👤</i>Tôi</a></nav>
+<div id="toasts" aria-live="polite"></div>
+<noscript><p style="padding:20px">Vui lòng bật JavaScript để dùng AgriLoop.</p></noscript>
+<script>
+'use strict';
+/* =====================================================================
+   THAY ẢNH / VIDEO (tạo thư mục images/ và videos/ cạnh index.html)
+   - Ảnh & video sản phẩm số NN (01-31): images/spNN-01.jpg, spNN-02.jpg, videos/spNN-03.mp4, images/spNN-04.jpg... (số thứ tự chia hết cho 3 là video, còn lại là ảnh), images/nguoi-ban-NN.jpg (người bán)
+   - Banner: biến BANNER. Ảnh mô hình/bài viết không dùng ở bản này.
+   - Đổi tên/thêm video cho sản phẩm: bảng OVR, ví dụ 1:{image:'images/rom-ra.jpg', video:'videos/sp01-03.mp4'}
+     video là file MP4 ('videos/ten.mp4') hoặc link nhúng YouTube ('https://www.youtube.com/embed/MÃ_VIDEO').
+   - Chưa có ảnh thì trang tự hiện ảnh mẫu, không bị vỡ giao diện.
+   ===================================================================== */
+const BANNER='images/banner-nong-nghiep.jpg';
+const OVR={1:{video:'videos/sp01-03.mp4'},8:{qty:0},22:{qty:0}};
+const CATS=[
+ {n:'Rơm rạ',e:'🌾',c:'#e3c56b',d:'rơm khô sau thu hoạch, sạch, không mốc.',spec:'Độ ẩm ~12–15% · Ép kiện 15–20 kg',use:'Thức ăn thô cho trâu bò, nền trồng nấm, ủ phân'},
+ {n:'Trấu & tro trấu',e:'🌰',c:'#c9a15b',d:'khô ráo, đóng bao hoặc ép viên.',spec:'Độ ẩm ≤ 12% · Đóng bao 20–30 kg',use:'Chất đốt, chất độn chuồng, cải tạo đất'},
+ {n:'Bã mía',e:'🎋',c:'#9bc16b',d:'bã sau ép, độ ẩm khoảng 50%.',spec:'Độ ẩm ~50% · Giao rời hoặc đóng bao',use:'Nhiên liệu lò hơi, ủ phân, nền trồng nấm'},
+ {n:'Vỏ cà phê',e:'☕',c:'#9a6a48',d:'phơi khô sau chế biến, ít tạp chất.',spec:'Độ ẩm ≤ 15% · Đóng bao 30 kg',use:'Ủ phân, giá thể, nhiên liệu sinh khối'},
+ {n:'Bã cà phê',e:'🫘',c:'#7a5238',d:'bã sau pha chế hoặc chiết xuất.',spec:'Dạng ướt hoặc sấy khô · Đóng thùng/bao',use:'Ủ phân, nuôi trùn quế, khử mùi'},
+ {n:'Vỏ điều',e:'🥜',c:'#d4a35a',d:'vỏ hạt điều khô từ nhà máy chế biến.',spec:'Độ ẩm ≤ 10% · Đóng bao tải',use:'Nhiên liệu lò hơi, sản xuất than sinh học'},
+ {n:'Thân lá cây trồng',e:'🍃',c:'#7fb35c',d:'thân, lá, lõi sau thu hoạch, phơi khô.',spec:'Cắt khúc 5–10 cm · Đóng bao/kiện',use:'Thức ăn thô, ủ phân, che phủ đất'},
+ {n:'Phân hữu cơ',e:'🌱',c:'#6a9a44',d:'ủ hoai mục từ phụ phẩm nông nghiệp.',spec:'Hữu cơ ≥ 20% · Bao 25 kg',use:'Cải tạo đất cho lúa, cây ăn trái, rau màu'},
+ {n:'Phụ phẩm chế biến',e:'🏭',c:'#c9b08a',d:'phụ phẩm từ nhà máy chế biến nông sản.',spec:'Theo lô · Cần sử dụng sớm',use:'Giá thể, nguyên liệu sản xuất, ủ chua'},
+ {n:'Thức ăn chăn nuôi',e:'🐄',c:'#d9b98a',d:'nguyên liệu phối trộn thức ăn gia súc, gia cầm.',spec:'Bảo quản khô thoáng · Bao 25–50 kg',use:'Phối trộn thức ăn chăn nuôi'},
+ {n:'Người dùng',e:'🧑‍🌾',c:'#cfe3c4'}];
+/* Đơn vị hành chính cấp tỉnh tính đến ngày 20/9/2026: 34 đơn vị = 9 thành phố trực thuộc trung ương + 25 tỉnh.
+   Cấp địa phương dưới tỉnh chỉ còn xã/phường/đặc khu (không còn quận/huyện). */
+const CITIES=['Hà Nội','TP. Hồ Chí Minh','Hải Phòng','Đà Nẵng','Cần Thơ','Huế','Đồng Nai','Quảng Ninh','Bắc Ninh'];
+const PROVS=['An Giang','Cà Mau','Cao Bằng','Điện Biên','Đắk Lắk','Đồng Tháp','Gia Lai','Hà Tĩnh','Hưng Yên','Khánh Hòa','Lai Châu','Lạng Sơn','Lâm Đồng','Lào Cai','Nghệ An','Ninh Bình','Phú Thọ','Quảng Ngãi','Quảng Trị','Sơn La','Tây Ninh','Thái Nguyên','Thanh Hóa','Tuyên Quang','Vĩnh Long'];
+const RG=[['mnpb','Trung du & miền núi phía Bắc',['Tuyên Quang','Cao Bằng','Lai Châu','Lào Cai','Thái Nguyên','Điện Biên','Lạng Sơn','Sơn La','Phú Thọ']],
+ ['dbsh','Đồng bằng sông Hồng',['Hà Nội','Hải Phòng','Quảng Ninh','Bắc Ninh','Hưng Yên','Ninh Bình']],
+ ['trung','Bắc Trung Bộ & Duyên hải miền Trung',['Thanh Hóa','Nghệ An','Hà Tĩnh','Quảng Trị','Huế','Đà Nẵng','Quảng Ngãi','Khánh Hòa']],
+ ['tn','Tây Nguyên',['Gia Lai','Đắk Lắk','Lâm Đồng']],
+ ['dnb','Đông Nam Bộ',['TP. Hồ Chí Minh','Đồng Nai','Tây Ninh']],
+ ['dbscl','Đồng bằng sông Cửu Long',['Cần Thơ','Vĩnh Long','Đồng Tháp','An Giang','Cà Mau']]];
+const REG={};RG.forEach(r=>r[2].forEach(p=>REG[p]=r[0]));
+const NOW=Date.now(),DAY=864e5;
+const LINES=`Rơm rạ ép kiện|0|2200|kg|30000|Đồng Tháp|HTX Tân Thạnh
+Rơm cuộn đồng ruộng|0|1700|kg|45000|An Giang|Nông trại Bảy Núi
+Rơm ủ men làm thức ăn bò|0|3000|kg|15000|Lâm Đồng|Trại bò Đông Hưng
+Rơm nền trồng nấm|0|2000|kg|20000|Tây Ninh|Cơ sở nấm Hòa Phát
+Trấu tươi đóng bao|1|800|kg|50000|An Giang|Cây xanh Đại Phúc
+Trấu ép viên|1|1900|kg|18000|An Giang|Cơ sở Rạch Sỏi
+Tro trấu xử lý đất|1|900|kg|22000|An Giang|Cây xanh Đại Phúc
+Than trấu|1|4500|kg|8000|Cần Thơ|Lò than Mỹ Xuyên
+Bã mía ép khô|2|450|kg|80000|Tây Ninh|NM đường Suối Lam
+Bã mía ủ phân|2|600|kg|40000|Cần Thơ|Cơ sở Vị Thanh
+Bã mía làm nhiên liệu|2|520|kg|100000|Khánh Hòa|AgriS Ninh Hòa
+Vỏ cà phê khô|3|1200|kg|20000|Đắk Lắk|Simexco Đắk Lắk
+Vỏ cà phê ủ men|3|1600|kg|12000|Gia Lai|ALiSEA Mekong
+Bã cà phê sau pha chế|4|1000|kg|6000|Lâm Đồng|Chuỗi cà phê Đà Lạt
+Bã cà phê sấy khô|4|2500|kg|5000|Lâm Đồng|NEOP CO
+Thân lá ngô sau thu hoạch|6|800|kg|40000|Sơn La|HTX Mai Sơn
+Lõi ngô xay nhỏ|6|1100|kg|18000|Đắk Lắk|Cơ sở Krông Pắc
+Phân trùn quế|7|280000|bao|400|Hưng Yên|SenAgri.vn
+Bã sắn tươi|8|600|kg|60000|Tây Ninh|NM tinh bột Tân Châu
+Xơ dừa đã xử lý|8|3200|kg|15000|Vĩnh Long|Cơ sở dừa Ba Tri
+Cám gạo loại 1|9|8000|kg|12000|Cần Thơ|Cơ sở Hai Lúa
+Bã đậu nành khô|9|4200|kg|10000|Hà Nội|Tân Hữu Quí
+Mùn cưa gỗ cao su|8|900|kg|25000|Đồng Nai|Xưởng gỗ Phú Riềng`.split('\n');
+const SEED=LINES.map((l,i)=>{const[name,ci,price,unit,qty,prov,seller]=l.split('|'),n=String(i+1).padStart(2,'0'),k=CATS[+ci];
+ return{id:'s'+n,type:'s',name,ci:+ci,price:+price,unit,qty:+qty,prov,seller,phone:'0900 000 0'+n,desc:`${name} từ ${prov}: ${k.d} Có thể thỏa thuận số lượng, đóng gói và vận chuyển trực tiếp với người bán.`,spec:k.spec,use:k.use,ts:NOW-i*3*36e5,owner:null,status:'active',
+ image:`images/sp${n}-01.jpg`,gallery:[1,2,4,5].map(j=>`images/sp${n}-0${j}.jpg`),video:`videos/sp${n}-03.mp4`,sellerAvatar:`images/nguoi-ban-${n}.jpg`,...(OVR[i+1]||{})}});
+const DSEED=`Cần mua rơm rạ ép kiện số lượng lớn|0|20000|kg|1300|1700|Đồng Tháp|Trại bò sữa Cao Lãnh|Cần trong 15 ngày
+Thu mua trấu làm chất đốt lò sấy|1|60000|kg|600|900|An Giang|Nhà máy sấy lúa Chợ Mới|Cần trong 30 ngày
+Cần vỏ cà phê khô sản xuất phân bón|3|30000|kg|1000|1400|Đắk Lắk|Công ty phân bón Buôn Hồ|Cần trong 30 ngày
+Nhận bã mía làm giá thể trồng nấm|2|50000|kg|350|550|Tây Ninh|Trại nấm Tân Biên|Cần trong 7 ngày
+Mua cám gạo phối trộn thức ăn chăn nuôi|9|10000|kg|6000|7000|Cần Thơ|Nhà máy thức ăn Thốt Nốt|Linh hoạt
+Cần vỏ hạt điều cho lò hơi|5|80000|kg|1800|2300|Đồng Nai|Nhà máy giấy Bình Long|Cần trong 15 ngày
+Thu mua thân lá ngô để ủ chua|6|40000|kg|700|900|Sơn La|HTX chăn nuôi Mộc Châu|Cần trong 30 ngày
+Cần phân hữu cơ cho vườn sầu riêng|7|500|bao|60000|80000|Đắk Lắk|Vườn sầu riêng Krông Pắc|Cần trong 15 ngày
+Mua bã cà phê nuôi trùn quế|4|8000|kg|800|1200|Tây Ninh|Trại trùn Cần Đước|Linh hoạt
+Cần xơ dừa làm giá thể vườn ươm|8|12000|kg|2800|3500|Vĩnh Long|Vườn ươm Mỏ Cày|Cần trong 30 ngày`.split('\n').map((l,i)=>{const[name,ci,qty,unit,pmin,pmax,prov,seller,note]=l.split('|');
+ return{id:'d'+String(i+1).padStart(2,'0'),type:'d',name,ci:+ci,qty:+qty,unit,pmin:+pmin,pmax:+pmax,prov,seller,note,phone:'0900 000 1'+String(i+1).padStart(2,'0'),desc:`${seller} cần nguồn cung ổn định, có thể nhận theo đợt. Vui lòng liên hệ để trao đổi giá, chất lượng và địa điểm giao nhận.`,ts:NOW-i*5*36e5,owner:null,status:'active'}});
+
+/* ===== TIỆN ÍCH ===== */
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const num=n=>Number(n).toLocaleString('vi-VN'),money=n=>num(n)+'đ';
+const hs=x=>[...String(x)].reduce((a,c)=>(a*31+c.charCodeAt(0))>>>0,7);
+const ago=t=>{const m=Math.round((Date.now()-t)/6e4);return m<2?'Vừa xong':m<60?m+' phút trước':m<1440?Math.round(m/60)+' giờ trước':Math.round(m/1440)+' ngày trước'};
+const posted=t=>Date.now()-t<12e4?'Vừa đăng':'Đăng '+ago(t);
+const tm=t=>new Date(t).toLocaleString('vi-VN');
+const mem={};
+const store={get(k,d){try{const v=localStorage.getItem(k);return v===null?(k in mem?mem[k]:d):JSON.parse(v)}catch(e){return k in mem?mem[k]:d}},
+ set(k,v){mem[k]=v;try{localStorage.setItem(k,JSON.stringify(v));return true}catch(e){return false}}};
+const arr=k=>{const v=store.get(k,[]);return Array.isArray(v)?v:[]};
+const sess=()=>{const s=store.get('al3_sess',null);return s&&s.key?s:null};
+const POSTS=()=>arr('al3_posts'),CN=()=>arr('al3_conn'),SAVED=()=>arr('al3_saved'),QA=()=>{const v=store.get('al3_qa',{});return v&&typeof v==='object'&&!Array.isArray(v)?v:{}};
+const all=()=>SEED.concat(DSEED,POSTS()),live=t=>all().filter(x=>x.type===t&&x.status!=='hidden'),byId=id=>all().find(x=>x.id===id);
+const price=p=>p.type==='s'?`${money(p.price)}<small>/${esc(p.unit)}</small>`:`${p.pmin===p.pmax?num(p.pmin):num(p.pmin)+'–'+num(p.pmax)}đ<small>/${esc(p.unit)}</small>`;
+function toast(m,t){const d=document.createElement('div');d.className='toast '+(t||'');d.textContent=m;$('#toasts').append(d);setTimeout(()=>d.remove(),3500)}
+const okSrc=u=>typeof u==='string'&&/^(images\/[\w\-./]+|data:image\/(jpeg|png|webp);base64,[A-Za-z0-9+/=]+|https:\/\/[^\s"'<>]+)$/.test(u);
+const ph=ci=>{const k=CATS[ci]||CATS[0];return 'data:image/svg+xml,'+encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="${k.c}"/><stop offset="1" stop-color="#f4f8f1"/></linearGradient></defs><rect width="400" height="300" fill="url(#g)"/><text x="200" y="175" font-size="90" text-anchor="middle">${k.e}</text></svg>`)};
+const im=(src,ci,alt,cls)=>`<img class="${cls??'product-image'}" src="${okSrc(src)?esc(src):ph(ci)}" data-c="${ci}" alt="${esc(alt)}" loading="lazy">`;
+document.addEventListener('error',e=>{const t=e.target;
+ if(t.tagName==='IMG'&&!t.dataset.f){t.dataset.f=1;t.src=ph(t.dataset.c)}
+ if(t.tagName==='SOURCE'){const w=t.closest('.vw');if(w)w.outerHTML='<div class="novid"><img class="ph43" src="'+ph(+w.dataset.c)+'" alt=""><p>Không tải được video. Kiểm tra lại đường dẫn trong thư mục videos/.</p></div>'}},true);
+function vidHtml(p){const v=p.video;
+ if(/^https:\/\/(www\.)?(youtube\.com|youtube-nocookie\.com)\/embed\/[\w-]+$/.test(v||''))return`<div class="vw"><iframe src="${esc(v)}" title="Video ${esc(p.name)}" allowfullscreen loading="lazy"></iframe></div>`;
+ if(/^videos\/[\w\-./]+\.(mp4|webm)$/.test(v||''))return`<div class="vw" data-c="${p.ci}"><video controls preload="metadata" poster="${ph(p.ci)}"><source src="${esc(v)}" type="video/mp4">Trình duyệt không hỗ trợ phát video.</video></div>`;
+ return`<div class="novid"><img class="ph43" src="${ph(p.ci)}" alt=""><p>Tin này chưa có video.</p></div>`}
+const opts=(a,first)=>`<option value="">${first}</option>`+a.map(([v,t])=>`<option value="${esc(v)}">${esc(t)}</option>`).join('');
+const catOpts=first=>opts(CATS.slice(0,10).map((c,i)=>[i,c.n]),first);
+const provOpts=first=>`<option value="">${first}</option><optgroup label="Thành phố trực thuộc trung ương">${CITIES.map(x=>`<option>${esc(x)}</option>`).join('')}</optgroup><optgroup label="Tỉnh">${PROVS.map(x=>`<option>${esc(x)}</option>`).join('')}</optgroup>`;
+const fld=(t,h)=>`<label class="f">${t}${h}<small class="err"></small></label>`;
+function showErr(form,errs){$$('.f',form).forEach(l=>{const el=$('[name]',l);if(!el)return;const m=errs[el.name]||'';$('.err',l).textContent=m;l.classList.toggle('bad',!!m)});const k=Object.keys(errs)[0];if(k)form.elements[k].focus();return!k}
+const normPhone=s=>s.replace(/[\s.\-()]/g,'').replace(/^\+84/,'0'),phoneOK=s=>/^0\d{9}$/.test(s),emailOK=s=>/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(s);
+function readImg(file){return new Promise((ok,no)=>{if(!/^image\/(jpeg|png|webp)$/.test(file.type))return no('Chỉ nhận ảnh JPG, PNG hoặc WEBP.');if(file.size>8e6)return no('Ảnh quá lớn (tối đa 8 MB).');
+ const r=new FileReader();r.onerror=()=>no('Không đọc được ảnh.');r.onload=()=>{const i=new Image();i.onerror=()=>no('Tệp ảnh không hợp lệ.');i.onload=()=>{const k=Math.min(1,640/Math.max(i.width,i.height)),c=document.createElement('canvas');c.width=i.width*k;c.height=i.height*k;c.getContext('2d').drawImage(i,0,0,c.width,c.height);ok(c.toDataURL('image/jpeg',.7))};i.src=r.result};r.readAsDataURL(file)})}
+async function hp(pw,salt){try{const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(salt+pw));return[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}catch(e){let h=5381;for(const c of salt+pw)h=((h<<5)+h+c.charCodeAt(0))>>>0;return'f'+h}}
+
+/* ===== THẺ TIN ===== */
+function card(p){const s=p.type==='s',sv=SAVED().includes(p.id),k=CATS[p.ci];
+ return`<article class="card">${s?`<a class="im" href="#/p/${esc(p.id)}">${im(p.image,p.ci,p.name)}</a>`:''}
+ <div class="${s?'cb':'need'}">${s?'':`<span class="tg">${k.e} Cần mua · ${esc(k.n)}</span>`}<div class="pr">${price(p)}</div><h3><a href="#/p/${esc(p.id)}">${esc(p.name)}</a></h3>
+ <p class="mt">${s?(p.qty>0?num(p.qty)+' '+esc(p.unit):'Tạm hết hàng'):'Cần '+num(p.qty)+' '+esc(p.unit)} · ${esc(p.prov)}</p>
+ <div class="sl">${s?im(p.sellerAvatar,10,p.seller,'av'):''}<span>${esc(p.seller)} · ${ago(p.ts)}</span></div></div>
+ <button class="save ${sv?'on':''}" data-act="save" data-id="${esc(p.id)}" aria-pressed="${sv}" aria-label="Lưu tin" title="Lưu tin">♥</button></article>`}
+
+/* ===== TRANG CHÀO MỪNG (khách) ===== */
+function vWelcome(){const a=SEED[0],b=SEED[8],d=DSEED[0],mini=(c,t,p)=>`<div class="mini ${c}"><small>${t}</small><b>${esc(p.name)}</b><span class="pr">${price(p)}</span><small> · ${esc(p.prov)}</small></div>`;
+ return`<header class="wl-top"><a class="logo" href="#/welcome">Agri<b>Loop</b></a><span class="acts"><a class="btn ghost sm" href="#/login">Đăng nhập</a><a class="btn sm" href="#/login/up">Đăng ký</a></span></header>
+ <section class="wl-hero"><div><h1>Mua bán phụ phẩm nông nghiệp <em style="white-space:nowrap">dễ dàng</em></h1><p>Rơm rạ, trấu, bã mía, vỏ cà phê... Đăng tin, tìm đúng người cần và liên hệ trực tiếp trên toàn quốc.</p>
+ <div class="wl-cta"><a class="btn big" href="#/login/up">Đăng ký miễn phí</a><a class="btn big ghost" href="#/login">Đăng nhập</a></div><p class="note">Đăng nhập bằng số điện thoại hoặc Email.</p></div>
+ <div class="wl-vis">${im(BANNER,0,'Cánh đồng sau thu hoạch','')}${mini('m1','Cần bán',a)}${mini('m2','Cần mua',d)}${mini('m3','Cần bán',b)}</div></section>
+ <section class="wl-feat"><div><i>🌾</i><h3>Đăng tin nhanh</h3><p>Đăng bán hoặc đăng nhu cầu mua chỉ trong 3 bước.</p></div><div><i>📍</i><h3>Tìm theo khu vực</h3><p>Lọc theo loại phụ phẩm, tỉnh thành và khoảng giá.</p></div><div><i>📞</i><h3>Liên hệ trực tiếp</h3><p>Gọi, nhắn Zalo hoặc chat ngay với người đăng tin.</p></div></section>`}
+
+/* ===== ĐĂNG NHẬP / ĐĂNG KÝ ===== */
+function vLogin(a){const up=a==='up';
+ return`<div class="authpage"><a class="logo" href="#/welcome">Agri<b>Loop</b></a><div class="authbox"><div class="tabs2"><a class="${up?'':'on'}" href="#/login">Đăng nhập</a><a class="${up?'on':''}" href="#/login/up">Đăng ký</a></div>
+ <form class="form" data-form="auth" data-mode="${up?'up':'in'}" novalidate>${up?fld('Họ và tên','<input name="name" autocomplete="name">'):''}
+ ${fld('Số điện thoại hoặc Email','<input name="acct" type="text" placeholder="0912 345 678 hoặc tenban@gmail.com" autocomplete="username">')}
+ ${fld('Mật khẩu',`<input name="pw" type="password" autocomplete="${up?'new':'current'}-password">`)}${up?fld('Nhập lại mật khẩu','<input name="pw2" type="password" autocomplete="new-password">'):''}
+ <button class="btn big">${up?'Tạo tài khoản':'Đăng nhập'}</button></form>
+ <p class="note c" style="margin:14px 0 0">${up?'Đã có tài khoản? <a href="#/login">Đăng nhập</a>':'Chưa có tài khoản? <a href="#/login/up">Đăng ký</a>'}</p></div></div>`}
+function enter(u,first){store.set('al3_sess',{id:u.id,name:u.name,key:u.key,method:u.method,phone:u.method==='phone'?u.key:(u.phone||''),prov:u.prov||'',avatar:u.avatar||''});location.hash='#/';route();toast(first?'Chào mừng bạn đến với AgriLoop!':'Xin chào, '+u.name+'!')}
+async function doAuth(f){const up=f.dataset.mode==='up',er={},v=n=>f.elements[n].value.trim(),raw=v('acct'),pw=f.elements.pw.value;
+ const isEmail=raw.includes('@'),m=isEmail?'email':'phone';let key;
+ if(!raw){er.acct='Vui lòng nhập số điện thoại hoặc email.'}
+ else if(isEmail){key=raw.toLowerCase();if(!emailOK(key))er.acct='Địa chỉ email chưa hợp lệ.'}
+ else{key=normPhone(raw);if(!phoneOK(key))er.acct='Nhập đúng SĐT (10 số) hoặc địa chỉ email.'}
+ if(up&&v('name').length<2)er.name='Nhập họ và tên.';if(pw.length<6)er.pw='Mật khẩu cần ít nhất 6 ký tự.';if(up&&f.elements.pw2.value!==pw)er.pw2='Mật khẩu nhập lại chưa khớp.';
+ if(!showErr(f,er))return;const users=arr('al3_users');
+ if(up){if(users.some(u=>u.key===key))return void showErr(f,{acct:'Tài khoản này đã đăng ký. Hãy đăng nhập.'});
+  const salt=Math.random().toString(36).slice(2),u={id:'u'+Date.now(),name:v('name'),method:m,key,salt,hash:await hp(pw,salt)};store.set('al3_users',users.concat(u));enter(u,true)}
+ else{const u=users.find(x=>x.key===key);if(!u||u.hash!==await hp(pw,u.salt)){showErr(f,{pw:'Tài khoản hoặc mật khẩu chưa đúng.'});return}enter(u)}}
+
+/* ===== TRANG CHỦ ===== */
+function vHome(){const u=sess(),S=live('s'),D=live('d');
+ return`<section class="hero"><div class="wrap"><h1>Xin chào, ${esc(u.name.split(' ').pop())}</h1><p>Bạn đang tìm phụ phẩm nào hôm nay?</p>
+ <form class="sb" data-form="hs" role="search"><input name="q" type="search" placeholder="Rơm rạ, trấu, vỏ cà phê..." aria-label="Từ khóa"><select name="prov" aria-label="Khu vực">${provOpts('Toàn quốc')}</select><button class="btn">Tìm kiếm</button></form></div></section>
+ <div class="wrap"><div class="cats">${CATS.slice(0,10).map((c,i)=>`<button class="cat" data-act="cat" data-v="${i}"><i>${c.e}</i>${esc(c.n)}</button>`).join('')}</div>
+ <section class="sec"><div class="sechd"><h2>Tin cần bán mới</h2><a href="#/market">Xem tất cả</a></div><div class="grid">${[...S].sort((a,b)=>b.ts-a.ts).slice(0,8).map(card).join('')}</div></section>
+ <section class="sec"><div class="sechd"><h2>Đang cần mua</h2><a href="#/market/need">Xem tất cả</a></div><div class="grid">${[...D].sort((a,b)=>b.ts-a.ts).slice(0,4).map(card).join('')}</div></section></div>`}
+
+/* ===== CHỢ ===== */
+const F0={q:'',ci:'',prov:'',min:'',max:'',sort:'new'};let F={...F0},MT='s',shown=12,tok=0;
+function vMarket(a){MT=a==='need'?'d':'s';
+ return`<div class="wrap"><div class="tabs"><a class="${MT==='s'?'on':''}" href="#/market">Cần bán</a><a class="${MT==='d'?'on':''}" href="#/market/need">Cần mua</a></div>
+ <form class="filters" id="filters" data-form="nop" autocomplete="off"><label>Tìm kiếm<input name="q" type="search" value="${esc(F.q)}" placeholder="Ví dụ: trấu"></label>
+ <label>Loại phụ phẩm<select name="ci">${catOpts('Tất cả').replace(`value="${F.ci}"`,`value="${F.ci}" selected`)}</select></label>
+ <label>Tỉnh/thành<select name="prov">${provOpts('Toàn quốc').replace(`<option>${esc(F.prov)}</option>`,`<option selected>${esc(F.prov)}</option>`)}</select></label>
+ <label>Giá từ (đ)<input name="min" type="number" min="0" value="${esc(F.min)}"></label><label>Đến (đ)<input name="max" type="number" min="0" value="${esc(F.max)}"></label>
+ <label>Sắp xếp<select name="sort"><option value="new">Mới nhất</option><option value="asc" ${F.sort==='asc'?'selected':''}>Giá tăng dần</option><option value="desc" ${F.sort==='desc'?'selected':''}>Giá giảm dần</option></select></label></form>
+ <p class="note" id="count" aria-live="polite"></p><div class="grid" id="grid"></div>
+ <div class="empty" id="empty" hidden><div>🔍</div><h3>Không tìm thấy tin phù hợp</h3><p class="note">Thử đổi từ khóa hoặc bỏ bớt bộ lọc.</p><button class="btn" data-act="reset">Xóa bộ lọc</button></div>
+ <p class="c"><button class="btn ghost" id="more" data-act="more" hidden>Xem thêm</button></p></div>`}
+function drawMarket(){const my=++tok,g=$('#grid');if(!g)return;g.innerHTML='<div class="skel"></div>'.repeat(4);$('#empty').hidden=true;$('#more').hidden=true;$('#count').textContent='Đang tải...';
+ setTimeout(()=>{if(my!==tok||!$('#grid'))return;const q=F.q.trim().toLowerCase(),mn=F.min===''?0:+F.min,mx=F.max===''?Infinity:+F.max,pv=p=>p.type==='s'?p.price:p.pmin;
+  const l=live(MT).filter(p=>(!q||(p.name+' '+CATS[p.ci].n+' '+p.desc).toLowerCase().includes(q))&&(F.ci===''||p.ci===+F.ci)&&(!F.prov||p.prov===F.prov)&&pv(p)>=mn&&pv(p)<=mx)
+   .sort(F.sort==='asc'?(a,b)=>pv(a)-pv(b):F.sort==='desc'?(a,b)=>pv(b)-pv(a):(a,b)=>b.ts-a.ts);
+  $('#count').textContent=`${l.length} tin`;g.innerHTML=l.slice(0,shown).map(card).join('');$('#empty').hidden=l.length>0;$('#more').hidden=l.length<=shown},250)}
+
+/* ===== CHI TIẾT ===== */
+function vDetail(id){const p=byId(id),u=sess();
+ if(!p||p.status==='hidden'&&p.owner!==u.id)return`<div class="wrap"><div class="empty"><h3>Không tìm thấy tin</h3><p class="note">Tin có thể đã bị xóa hoặc ẩn.</p><a class="btn" href="#/market">Về chợ phụ phẩm</a></div></div>`;
+ const s=p.type==='s',sv=SAVED().includes(p.id),g=(p.gallery&&p.gallery.length?p.gallery:[p.image]).slice(0,5),k=CATS[p.ci],qa=QA()[id]||[];
+ const rel=live(p.type).filter(x=>x.id!==id).sort((a,b)=>(b.ci===p.ci)-(a.ci===p.ci)).slice(0,4);
+ return`<div class="wrap"><p><a href="#/market${s?'':'/need'}">← Quay lại</a></p><div class="detail"><div>${s?im(p.image||g[0],p.ci,p.name,'product-image mainimg').replace('loading="lazy"','id="mainImg"')+`<div class="thumbs">${g.map((x,i)=>`<button data-act="thumb" data-s="${okSrc(x)?esc(x):''}" aria-label="Ảnh ${i+1}">${im(x,p.ci,p.name,'')}</button>`).join('')}</div>`:`<div class="ph43" style="display:grid;place-items:center;font-size:90px;background:linear-gradient(135deg,${k.c},#fff);border-radius:14px">${k.e}</div>`}</div>
+ <div><span class="st">${s?'Cần bán':'Cần mua'} · ${esc(k.n)}</span><h1>${esc(p.name)}</h1><div class="pr">${price(p)}</div>
+ <p>${s?'Số lượng':'Cần'}: <b>${num(p.qty)} ${esc(p.unit)}</b><br>Khu vực: <b>${esc(p.ward?p.ward+', ':'')}${esc(p.prov)}</b><br>${posted(p.ts)}${p.note?'<br>'+esc(p.note):''}</p>
+ <div class="sbox">${im(p.sellerAvatar,10,p.seller,'av lg')}<div><b>${esc(p.seller)}</b><p class="note">${s?'Người bán':'Người cần mua'} · ${esc(p.prov)}</p></div></div>
+ <div class="acts"><button class="btn dark" data-act="call" data-id="${esc(id)}">📞 Gọi</button><a class="btn ghost" href="https://zalo.me/${esc(normPhone(p.phone||''))}" target="_blank" rel="noopener">Zalo</a><button class="btn" data-act="chat" data-id="${esc(id)}">💬 Chat</button><button class="btn ghost" data-act="save" data-id="${esc(id)}" aria-pressed="${sv}">${sv?'♥ Đã lưu':'♡ Lưu tin'}</button></div></div></div>
+ <div class="tabs"><button class="on" data-act="tab" data-t="d">Mô tả</button>${s?'<button data-act="tab" data-t="m">Ảnh & Video</button>':''}<button data-act="tab" data-t="q">Hỏi người ${s?'bán':'mua'} (${qa.length})</button></div>
+ <div data-pane="d"><p>${esc(p.desc)}</p>${s?`<table class="sp"><tr><td>Loại phụ phẩm</td><td>${esc(k.n)}</td></tr><tr><td>Đặc tính</td><td>${esc(p.spec||'Hỏi người bán')}</td></tr><tr><td>Mục đích sử dụng</td><td>${esc(p.use||'Hỏi người bán')}</td></tr></table>`:''}</div>
+ ${s?`<div data-pane="m" hidden><h3>Video</h3>${vidHtml(p)}<h3 style="margin-top:16px">Thư viện ảnh</h3><div class="thumbs">${g.map(x=>`<button data-act="thumb" data-s="${okSrc(x)?esc(x):''}">${im(x,p.ci,p.name,'')}</button>`).join('')}</div></div>`:''}
+ <div data-pane="q" hidden>${qa.map(c=>`<div class="box" style="margin-bottom:8px"><b>${esc(c.n)}</b> <small class="note">${ago(c.ts)}</small><p style="margin:4px 0 0">${esc(c.t)}</p></div>`).join('')||'<p class="note">Chưa có câu hỏi nào.</p>'}
+  <form class="r2" style="grid-template-columns:1fr auto" data-form="qa" data-id="${esc(id)}"><input name="t" maxlength="200" placeholder="Viết câu hỏi..." aria-label="Câu hỏi"><button class="btn">Gửi</button></form></div>
+ <div class="sechd" style="margin-top:34px"><h2>Tin tương tự</h2></div><div class="grid">${rel.map(card).join('')}</div></div>`}
+
+/* ===== ĐĂNG TIN (3 bước) ===== */
+const PS={id:null,step:1,imgs:[],video:''};
+function vPost(id){const u=sess(),p=id&&POSTS().find(x=>x.id===id&&x.owner===u.id);if(id&&!p)toast('Không tìm thấy tin cần sửa.','err');
+ Object.assign(PS,{id:p?p.id:null,step:1,imgs:p?(p.gallery||[]):[],video:''});
+ setTimeout(()=>{const f=$('#postForm');if(!f)return;if(p){['type','ci','name','qty','unit','prov','ward','desc','seller','phone'].forEach(k=>{if(f.elements[k])f.elements[k].value=p[k]??''});f.elements.price.value=p.type==='s'?p.price:p.pmin;f.elements.type.value=p.type;imgPrev()}else{f.elements.seller.value=u.name;f.elements.phone.value=u.phone||'';if(u.prov)f.elements.prov.value=u.prov}showStep()},0);
+ return`<div class="wrap" style="max-width:720px"><h1 style="margin:24px 0 14px">${p?'Sửa tin đăng':'Đăng tin'}</h1><ol class="steps" id="steps"><li>1. Loại tin</li><li>2. Thông tin</li><li>3. Ảnh & liên hệ</li></ol>
+ <form id="postForm" class="form box" data-form="post" novalidate>
+ <div data-s="1" class="form">${fld('Bạn muốn',`<select name="type"><option value="s">Đăng bán phụ phẩm</option><option value="d">Đăng tin cần mua</option></select>`)}${fld('Loại phụ phẩm',`<select name="ci">${catOpts('Chọn loại')}</select>`)}${fld('Tiêu đề tin','<input name="name" maxlength="90" placeholder="Ví dụ: Rơm rạ ép kiện số lượng lớn">')}</div>
+ <div data-s="2" class="form" hidden><div class="r3">${fld('Số lượng','<input name="qty" type="number" min="0">')}${fld('Đơn vị','<select name="unit"><option>kg</option><option>tấn</option><option>bao</option><option>m³</option></select>')}${fld('Giá (đ/đơn vị)','<input name="price" type="number" min="0">')}</div>
+  <div class="r2">${fld('Tỉnh/thành',`<select name="prov">${provOpts('Chọn tỉnh/thành')}</select>`)}${fld('Xã/phường (không bắt buộc)','<input name="ward" maxlength="60">')}</div>${fld('Mô tả','<textarea name="desc" rows="4" maxlength="800" placeholder="Chất lượng, cách đóng gói, thời gian có hàng, cách giao nhận..."></textarea>')}</div>
+ <div data-s="3" class="form" hidden><div data-img class="form">${fld('Ảnh (tối đa 5 ảnh, ảnh đầu là ảnh đại diện)','<input name="imgs" type="file" multiple accept="image/*">')}<div class="pv" id="imgPv"></div>
+  ${fld('Video (không bắt buộc, chỉ xem trước)','<input name="video" type="file" accept="video/*">')}<div id="vidPv"></div></div>
+  <div class="r2">${fld('Tên liên hệ','<input name="seller" maxlength="60">')}${fld('Số điện thoại','<input name="phone" type="tel">')}</div></div>
+ <div class="acts" style="margin-top:6px"><button type="button" class="btn ghost" data-act="back" id="bBack">Quay lại</button><button type="button" class="btn" data-act="next" id="bNext">Tiếp tục</button><button class="btn" id="bSave" hidden>${p?'Lưu thay đổi':'Đăng tin'}</button></div></form></div>`}
+function showStep(){const f=$('#postForm');if(!f)return;$$('[data-s]',f).forEach(x=>x.hidden=+x.dataset.s!==PS.step);$$('#steps li').forEach((x,i)=>x.classList.toggle('on',i+1===PS.step));
+ $('[data-img]',f).hidden=f.elements.type.value==='d';$('#bBack').hidden=PS.step===1;$('#bNext').hidden=PS.step===3;$('#bSave').hidden=PS.step!==3}
+function stepErr(f,st){const v=n=>f.elements[n].value.trim(),er={};
+ if(st===1){if(v('ci')==='')er.ci='Chọn loại phụ phẩm.';if(v('name').length<5)er.name='Tiêu đề cần từ 5 ký tự.'}
+ if(st===2){if(!(+v('qty')>0))er.qty='Nhập số lượng.';if(!(+v('price')>0))er.price='Nhập giá.';if(!v('prov'))er.prov='Chọn tỉnh/thành.';if(v('desc').length<10)er.desc='Mô tả cần từ 10 ký tự.'}
+ if(st===3){if(v('seller').length<2)er.seller='Nhập tên liên hệ.';if(!phoneOK(normPhone(v('phone'))))er.phone='Số điện thoại chưa đúng (ví dụ 0912345678).'}return er}
+const imgPrev=()=>{const e=$('#imgPv');if(e)e.innerHTML=PS.imgs.filter(okSrc).map(s=>`<img src="${esc(s)}" alt="Ảnh xem trước">`).join('')};
+
+/* ===== TIN NHẮN ===== */
+function chatList(){const u=sess(),l=CN().filter(c=>c.owner===u.id).sort((a,b)=>(b.thread[b.thread.length-1]||{ts:0}).ts-(a.thread[a.thread.length-1]||{ts:0}));
+ return l.length?l.map(c=>{const m=c.thread[c.thread.length-1];return`<a class="row" href="#/room/${esc(c.id)}" style="text-decoration:none">${im('',10,c.partner,'av lg')}<div><b>${esc(c.partner)}</b><br><small class="note">${esc(c.title)}</small><br><span>${esc(m?m.t.slice(0,70):'')}</span></div><small class="note">${m?ago(m.ts):''}</small></a>`}).join(''):'<div class="empty"><div>💬</div><h3>Chưa có tin nhắn</h3><p class="note">Bấm "Chat" ở một tin đăng để bắt đầu trò chuyện.</p><a class="btn" href="#/market">Xem chợ phụ phẩm</a></div>'}
+const vChat=()=>`<div class="wrap" style="max-width:760px"><h1 style="margin:24px 0 14px">Tin nhắn</h1>${chatList()}</div>`;
+function vRoom(id){const u=sess(),c=CN().find(x=>x.id===id&&x.owner===u.id);if(!c)return`<div class="wrap"><div class="empty"><h3>Không tìm thấy cuộc trò chuyện</h3><a class="btn" href="#/chat">Về tin nhắn</a></div></div>`;
+ return`<div class="wrap" style="max-width:760px"><p><a href="#/chat">← Tin nhắn</a></p><div class="sbox">${im('',10,c.partner,'av lg')}<div style="flex:1"><b>${esc(c.partner)}</b><p class="note">${esc(c.title)}</p></div><a class="btn sm ghost" href="#/p/${esc(c.ref)}">Xem tin</a></div>
+ <div class="room" id="roomBox">${c.thread.map(m=>`<div class="msg ${m.w}"><b>${esc(m.n)}</b><p>${esc(m.t)}</p><small>${tm(m.ts)}</small></div>`).join('')}</div>
+ <div class="chips">${['Còn hàng không bạn?','Giá có thương lượng không?','Bạn ở đâu?','Mình muốn lấy số lượng lớn'].map(t=>`<button class="chip" data-act="qr" data-id="${esc(c.id)}" data-t="${esc(t)}">${t}</button>`).join('')}</div>
+ <form class="r2" style="grid-template-columns:1fr auto" data-form="msg" data-id="${esc(c.id)}"><input name="t" maxlength="300" placeholder="Nhập tin nhắn..." aria-label="Tin nhắn" autocomplete="off"><button class="btn">Gửi</button></form></div>`}
+function openChat(id){const it=byId(id);if(!it)return;const u=sess();let c=CN().find(x=>x.owner===u.id&&x.ref===id);
+ if(!c){const t=Date.now();c={id:'c'+t,ref:id,title:it.name,partner:it.seller,prov:it.prov,ts:t,owner:u.id,thread:[]};store.set('al3_conn',CN().concat(c))}location.hash='#/room/'+c.id}
+function sendMsg(id,t){let pv='';store.set('al3_conn',CN().map(c=>{if(c.id!==id)return c;pv=c.prov||'';return{...c,thread:c.thread.concat({w:'me',n:sess().name,t,ts:Date.now()})}}));rerender();
+ setTimeout(()=>{const l=t.toLowerCase(),r=/còn/.test(l)?'Còn nhé bạn, bạn cần khoảng bao nhiêu?':/giá/.test(l)?'Giá có thể thương lượng nếu lấy số lượng nhiều bạn nhé.':/đâu|địa chỉ/.test(l)?'Mình ở '+(pv||'khu vực đã đăng')+', bạn có thể ghé xem hàng.':/lớn|nhiều|tấn/.test(l)?'Số lượng lớn mình ưu tiên giá tốt, bạn cho mình biết thời gian cần nhận nhé.':'Cảm ơn bạn, mình sẽ phản hồi chi tiết sớm.';
+  store.set('al3_conn',CN().map(c=>c.id===id?{...c,thread:c.thread.concat({w:'ptn',n:c.partner,t:r,ts:Date.now()})}:c));if((location.hash||'').startsWith('#/room/'+id))rerender()},900)}
+
+/* ===== TÀI KHOẢN ===== */
+let AT='mine';
+function vAccount(a){if(['mine','saved','prof'].includes(a))AT=a;const u=sess(),mine=POSTS().filter(x=>x.owner===u.id).sort((a,b)=>b.ts-a.ts),sv=SAVED().map(byId).filter(Boolean);let b='';
+ if(AT==='mine')b=mine.length?mine.map(p=>`<div class="row">${p.type==='s'?`<a class="im" href="#/p/${esc(p.id)}">${im(p.image,p.ci,p.name)}</a>`:'<span style="font-size:34px">🏭</span>'}<div><b>${esc(p.name)}</b> <span class="st ${p.status==='hidden'?'off':''}">${p.status==='hidden'?'Đã ẩn':p.type==='s'?'Cần bán':'Cần mua'}</span><br><small class="note">${p.type==='s'?money(p.price)+'/'+esc(p.unit):''} ${num(p.qty)} ${esc(p.unit)} · ${esc(p.prov)} · ${ago(p.ts)}</small></div>
+  <div class="acts"><a class="btn sm ghost" href="#/p/${esc(p.id)}">Xem</a><a class="btn sm ghost" href="#/post/${esc(p.id)}">Sửa</a><button class="btn sm ghost" data-act="toggle" data-id="${esc(p.id)}">${p.status==='hidden'?'Hiện lại':'Ẩn'}</button><button class="btn sm ghost" data-act="del" data-id="${esc(p.id)}">Xóa</button></div></div>`).join(''):'<div class="empty"><div>📝</div><h3>Bạn chưa đăng tin nào</h3><a class="btn" href="#/post">Đăng tin ngay</a></div>';
+ if(AT==='saved')b=sv.length?`<div class="grid">${sv.map(card).join('')}</div>`:'<div class="empty"><div>♡</div><h3>Chưa lưu tin nào</h3><p class="note">Nhấn ♥ trên tin đăng để lưu lại xem sau.</p></div>';
+ if(AT==='prof')b=`<form class="form box" data-form="prof" novalidate style="max-width:520px">${fld(u.method==='phone'?'Số điện thoại đăng nhập':'Email đăng nhập',`<input value="${esc(u.key)}" disabled>`)}${fld('Họ và tên',`<input name="name" value="${esc(u.name)}">`)}${u.method!=='phone'?fld('Số điện thoại liên hệ',`<input name="phone" value="${esc(u.phone||'')}">`):''}${fld('Tỉnh/thành',`<select name="prov">${provOpts('Chưa chọn').replace(`<option>${esc(u.prov)}</option>`,`<option selected>${esc(u.prov)}</option>`)}</select>`)}${fld('Ảnh đại diện','<input name="avatar" type="file" accept="image/*">')}<button class="btn">Lưu thông tin</button></form>`;
+ return`<div class="wrap"><h1 style="margin:24px 0 14px">Tài khoản</h1><div class="prof">${im(u.avatar,10,u.name,'av lg')}<div style="flex:1"><b>${esc(u.name)}</b><br><span class="note">${esc(u.key)}</span></div><button class="btn sm ghost" data-act="logout">Đăng xuất</button></div>
+ <div class="tabs"><a class="${AT==='mine'?'on':''}" href="#/account/mine">Tin của tôi</a><a class="${AT==='saved'?'on':''}" href="#/account/saved">Đã lưu</a><a class="${AT==='prof'?'on':''}" href="#/account/prof">Hồ sơ</a></div>${b}</div>`}
+
+/* ===== TRANG THÔNG TIN ===== */
+const INFO={about:['Giới thiệu AgriLoop','<p>AgriLoop là nơi người có phụ phẩm nông nghiệp và người cần nguyên liệu tìm thấy nhau. Rơm rạ, trấu, bã mía, vỏ cà phê... không còn bị bỏ phí mà trở thành thức ăn chăn nuôi, phân bón, nhiên liệu sinh khối và nguyên liệu sản xuất.</p><p><b>Sứ mệnh:</b> giúp nhà nông có thêm thu nhập và giảm lãng phí tài nguyên.</p><p><b>Tầm nhìn:</b> trở thành nền tảng kết nối cung – cầu phụ phẩm nông nghiệp trên cả nước.</p>'],
+ guide:['Hướng dẫn sử dụng','<h3>Người mua</h3><ol><li>Tìm tin ở mục Chợ phụ phẩm, lọc theo loại, tỉnh/thành, giá.</li><li>Bấm Gọi, Zalo hoặc Chat để trao đổi với người bán.</li><li>Xem hàng trước khi thanh toán. Không chuyển tiền trước cho người chưa quen biết.</li></ol><h3>Người bán</h3><ol><li>Chọn Đăng tin, điền 3 bước: loại tin, thông tin, ảnh và liên hệ.</li><li>Trả lời tin nhắn và cuộc gọi sớm để tăng cơ hội giao dịch.</li><li>Sửa, ẩn hoặc xóa tin tại Tài khoản.</li></ol>'],
+ policy:['Chính sách & điều khoản','<p>AgriLoop là nền tảng đăng tin và kết nối. AgriLoop không tham gia thanh toán, vận chuyển và không bảo đảm chất lượng hay giao dịch; hai bên tự thỏa thuận và chịu trách nhiệm.</p><p>Thông tin tài khoản, tin đăng, tin nhắn và ảnh được lưu trên thiết bị và trình duyệt bạn đang dùng. Mật khẩu được mã hóa trước khi lưu. Dữ liệu không đồng bộ giữa các thiết bị.</p><p>Vui lòng đăng thông tin trung thực, không đăng hàng cấm hoặc nội dung vi phạm pháp luật.</p>'],
+ contact:['Liên hệ','<p>Email: hotro@agriloop.vn</p><p>Điện thoại: 0900 000 000 (giờ hành chính)</p><p>Hỗ trợ: giải đáp cách đăng tin, tìm hàng và sử dụng tài khoản.</p>']};
+const vInfo=k=>{k=INFO[k]?k:'about';return`<div class="wrap" style="max-width:800px"><div class="tabs">${Object.keys(INFO).map(x=>`<a class="${x===k?'on':''}" href="#/info/${x}">${INFO[x][0].split(' ')[0]}</a>`).join('')}</div><h1>${INFO[k][0]}</h1>${INFO[k][1]}</div>`};
+
+/* ===== ĐIỀU HƯỚNG ===== */
+function route(){const[h,a]=(location.hash.slice(2)||'home').split('/'),u=sess();document.body.classList.toggle('gate',!u);
+ if(!u&&h!=='login'&&h!=='welcome'){location.hash='#/welcome';return}
+ if(u&&(h==='login'||h==='welcome')){location.hash='#/';return}
+ const V={welcome:vWelcome,login:()=>vLogin(a),home:vHome,market:()=>vMarket(a),p:()=>vDetail(a),post:()=>vPost(a),chat:vChat,room:()=>vRoom(a),account:()=>vAccount(a),info:()=>vInfo(a)};
+ if(!V[h]){location.hash='#/';return}
+ $('#app').innerHTML=V[h]();if(h==='market')drawMarket();
+ const n=h==='p'||h==='room'?(h==='room'?'chat':'market'):h;$$('[data-n]').forEach(x=>x.classList.toggle('on',x.dataset.n===n));
+ const rb=$('#roomBox');if(rb)rb.scrollTop=rb.scrollHeight;scrollTo(0,0)}
+function rerender(){const y=scrollY;route();scrollTo(0,y)}
+
+/* ===== SỰ KIỆN ===== */
+document.addEventListener('click',e=>{const b=e.target.closest('[data-act]');if(!b)return;const a=b.dataset.act,id=b.dataset.id,u=sess();if(b.tagName==='A'&&!b.getAttribute('target'))e.preventDefault();
+ if(a==='cat'){F={...F0,ci:b.dataset.v};location.hash='#/market';if(location.hash==='#/market')route()}
+ if(a==='reset'){F={...F0};route()}
+ if(a==='more'){shown+=12;drawMarket()}
+ if(a==='save'){const had=SAVED().includes(id);store.set('al3_saved',had?SAVED().filter(x=>x!==id):SAVED().concat(id));toast(had?'Đã bỏ lưu tin.':'Đã lưu tin.');rerender()}
+ if(a==='thumb'){const m=$('#mainImg');if(m&&b.dataset.s){m.dataset.f='';m.src=b.dataset.s}}
+ if(a==='tab'){$$('.tabs button').forEach(x=>x.classList.toggle('on',x===b));$$('[data-pane]').forEach(x=>x.hidden=x.dataset.pane!==b.dataset.t)}
+ if(a==='call'){const p=byId(id);b.outerHTML=`<a class="btn dark" href="tel:${esc(normPhone(p.phone||''))}">📞 ${esc(p.phone||'Chưa có số')}</a>`}
+ if(a==='chat')openChat(id);
+ if(a==='qr')sendMsg(id,b.dataset.t);
+ if(a==='toggle'){store.set('al3_posts',POSTS().map(p=>p.id===id?{...p,status:p.status==='hidden'?'active':'hidden'}:p));rerender()}
+ if(a==='del'&&confirm('Xóa tin đăng này? Không thể hoàn tác.')){store.set('al3_posts',POSTS().filter(p=>p.id!==id));toast('Đã xóa tin.');rerender()}
+ if(a==='logout'){store.set('al3_sess',null);location.hash='#/welcome';route();toast('Đã đăng xuất.')}
+ if(a==='next'){const f=$('#postForm');if(!showErr(f,stepErr(f,PS.step)))return;PS.step++;showStep();scrollTo(0,0)}
+ if(a==='back'){PS.step--;showStep()}});
+document.addEventListener('input',e=>{const f=e.target.closest('#filters');if(f){F[e.target.name]=e.target.value;shown=12;drawMarket()}if(e.target.name==='type'&&e.target.form&&e.target.form.id==='postForm')showStep()});
+document.addEventListener('change',async e=>{const t=e.target,f=t.form;if(!f||f.id!=='postForm')return;
+ if(t.name==='type')showStep();
+ if(t.name==='imgs'){try{PS.imgs=await Promise.all([...t.files].slice(0,5).map(readImg));imgPrev()}catch(m){t.value='';toast(String(m),'err')}}
+ if(t.name==='video'){const v=t.files[0];if(!v)return;if(!/^video\//.test(v.type)||v.size>3e7){t.value='';return toast('Chỉ nhận video, tối đa 30 MB.','err')}if(PS.video)URL.revokeObjectURL(PS.video);PS.video=URL.createObjectURL(v);$('#vidPv').innerHTML=`<video controls preload="metadata" src="${PS.video}" style="max-width:100%;border-radius:10px"></video>`}});
+document.addEventListener('submit',async e=>{e.preventDefault();const f=e.target,k=f.dataset.form,v=n=>f.elements[n].value.trim();
+ if(k==='auth')await doAuth(f);
+ if(k==='hs'){F={...F0,q:v('q'),prov:v('prov')};location.hash='#/market';if(location.hash==='#/market')route()}
+ if(k==='msg'){const t=v('t');if(t)sendMsg(f.dataset.id,t)}
+ if(k==='qa'){const t=v('t');if(!t)return;const q=QA(),u=sess();q[f.dataset.id]=(q[f.dataset.id]||[]).concat({n:u.name,t,ts:Date.now()});store.set('al3_qa',q);rerender();setTimeout(()=>{const b=$('[data-act=tab][data-t=q]');if(b)b.click()},0)}
+ if(k==='post'){if(PS.step<3)return;const er={...stepErr(f,1),...stepErr(f,2),...stepErr(f,3)};if(!showErr(f,er))return;
+  const u=sess(),s=v('type')==='s',ci=+v('ci'),t=Date.now(),base={type:v('type'),name:v('name'),ci,qty:+v('qty'),unit:v('unit'),prov:v('prov'),ward:v('ward'),desc:v('desc'),seller:v('seller'),phone:normPhone(v('phone'))};
+  const rec=s?{...base,price:+v('price'),spec:CATS[ci].spec,use:CATS[ci].use,image:PS.imgs[0]||'',gallery:PS.imgs,video:'',sellerAvatar:u.avatar||''}:{...base,pmin:+v('price'),pmax:+v('price'),note:'Đăng '+new Date(t).toLocaleDateString('vi-VN')};
+  const ok=PS.id?store.set('al3_posts',POSTS().map(p=>p.id===PS.id?{...p,...rec}:p)):store.set('al3_posts',POSTS().concat({...rec,id:'u'+t,ts:t,owner:u.id,status:'active'}));
+  toast(ok?(PS.id?'Đã lưu thay đổi.':'Đăng tin thành công!'):'Không lưu được dữ liệu trên trình duyệt này.',ok?'':'err');AT='mine';location.hash='#/account/mine'}
+ if(k==='prof'){const u=sess(),er={};if(v('name').length<2)er.name='Nhập họ và tên.';const ph=f.elements.phone?normPhone(v('phone')):u.phone;if(f.elements.phone&&ph&&!phoneOK(ph))er.phone='Số điện thoại chưa đúng.';if(!showErr(f,er))return;
+  let av=u.avatar;const fl=f.elements.avatar.files[0];if(fl){try{av=await readImg(fl)}catch(m){return toast(String(m),'err')}}
+  const pr={name:v('name'),phone:ph,prov:v('prov'),avatar:av};store.set('al3_users',arr('al3_users').map(x=>x.id===u.id?{...x,...pr}:x));store.set('al3_sess',{...u,...pr});toast('Đã lưu thông tin.');rerender()}});
+addEventListener('hashchange',route);route();
+</script>
+</body>
+</html>
